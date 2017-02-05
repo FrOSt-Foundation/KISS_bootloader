@@ -36,3 +36,4 @@ sub PC, 5
 ; magic word to be found as a bootsector by the bootloader
 .org 0x1FF, 0
 .dat 0x55AA
+:end_bootsector
