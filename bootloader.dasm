@@ -42,6 +42,7 @@
 #define DEVICES_LOCATION 0xE000
 
 #define SCREEN_LOCATION 0x8000
+#define SCREEN_SIZE 0x200
 #define COLOR 0xF000
 
 #define KEY_ENTER 0x11
@@ -58,6 +59,7 @@ ife [screen], 0xFFFF
 set A, 0
 set B, SCREEN_LOCATION
 hwi [screen] ;Mapping screen
+jsr clear_screen
 :no_screen_continue
 
 set I, KISS_welcome
@@ -270,6 +272,15 @@ set Y, POP
 set A, POP
 set J, POP
 set PC, POP
+
+:clear_screen
+set A, 0
+set I, SCREEN_LOCATION
+set J, 0
+ife J, SCREEN_SIZE
+    set PC, POP
+sti [I], A
+sub PC, 5
 
 :KISS_welcome .dat "==== KISS bootloader ===="
 :error_msg .dat "No boot sector found, aborting..."

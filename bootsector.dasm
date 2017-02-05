@@ -4,7 +4,8 @@
 ; A contains the floppy ID
 ; B contains the device list ID
 
-#define PROGRAM_SIZE 0x1 ; in sectors (TO CHANGE)
+; in sectors, not including the bootsector (TO CHANGE)
+:PROGRAM_SIZE .dat 0
 
 #define COPY_LOCATION 0xF000
 #define FLOPPY_STATE_BUSY 3
@@ -58,7 +59,7 @@ sub PC, 5
 ; reserved for future use
 .dat 0 0 0
 ; name, needs to reserve 10 u16 in total (TO CHANGE)
-.dat 0 0 0 0 0 0 0 0 0 0
+.dat "cFrOSt" 0 0 0
 
 ; magic word to be found as a bootsector by the bootloader
 .dat 0x55AA
