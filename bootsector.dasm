@@ -1,0 +1,16 @@
+; A contains the floppy ID
+; B contains the device list ID
+
+.dat 0 0 0 ; reserved for future use
+.dat "cFrOSt" 0 0 0 ; name, needs to reserve 10 u16 in total
+
+; example program
+
+log A
+log B
+
+sub PC, 1
+
+; magic word to be found as a bootsector by the bootloader
+.org 0x1FF, 0
+.dat 0x55AA
