@@ -21,7 +21,8 @@ set PC, memcpy
 set PUSH, B
 set PUSH, A
 set Y, 0
-set Z, PROGRAM_SIZE + 1
+set Z, [PROGRAM_SIZE]
+add Z, 1
 set X, 1
 set A, 2
 hwi PEEK
