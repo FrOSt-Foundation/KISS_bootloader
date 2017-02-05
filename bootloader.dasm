@@ -149,6 +149,8 @@ ife B, FLOPPY_STATE_BUSY
 set PC, POP
 
 :select_boot
+ife [bootsectors], 0
+    set PC, POP
 ifn [bootsectors], 0
     set Z, [bootsectors]
 ife [keyboard], 0
