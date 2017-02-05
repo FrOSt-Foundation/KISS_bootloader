@@ -97,7 +97,6 @@ sub PC, 1
 set I, SECTOR_LOCATION + 13
 set J, 0
 set C, 512
-set PUSH, PC
 :copy_end
 
 :find_bootsector
